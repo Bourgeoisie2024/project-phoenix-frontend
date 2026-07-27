@@ -562,11 +562,12 @@ export function Landing() {
         <div className="bg-gradient-to-r from-blue-900/30 via-purple-900/30 to-pink-900/30 rounded-2xl p-8 md:p-12 border border-blue-800/30">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex-1">
-              <h2 className="text-3xl font-bold mb-4">Try It Yourself</h2>
-              <p className="text-gray-300 mb-6">Explore a production-style application deployed on Kubernetes with GitOps automation.</p>
+              <h2 className="text-3xl font-bold mb-4">Experience Project Phoenix</h2>
+              <p className="text-gray-300 mb-6">Experience a cloud-native task management platform deployed on Kubernetes using Infrastructure as Code, GitOps, automated CI/CD, and modern observability practices.</p>
               <div className="space-y-4">
                 <div className="p-4 bg-gray-900/50 rounded-lg">
-                  <p className="text-sm text-gray-400 mb-2">Demo Credentials</p>
+                  <p className="text-sm text-gray-400 mb-2">Demo Access</p>
+                  <p className="text-sm text-gray-400 mb-2">Use one of the sample accounts below to explore the application.</p>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <p className="font-semibold">Admin Account</p>
@@ -578,17 +579,29 @@ export function Landing() {
                     </div>
                   </div>
                 </div>
-                <Link
-                  to="/login"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
-                >
-                  <Zap className="w-5 h-5" />
-                  Launch Demo Dashboard
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                  <Link
+                    to="/login"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+                  >
+                    <Zap className="w-5 h-5" />
+                    Launch Application
+                  </Link>
+
+                  <a
+                    href="https://github.com/Bourgeoisie2024/capstone-phoenix"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-600 rounded-lg hover:border-blue-500 hover:text-white transition-colors font-semibold"
+                  >
+                    View Repository
+                  </a>
+                </div>
               </div>
             </div>
             <div className="flex-1">
               <div className="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                <p className="text-gray-400 mb-4 text-sm uppercase tracking-wider">Application Preview</p>
                 <div className="flex gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>

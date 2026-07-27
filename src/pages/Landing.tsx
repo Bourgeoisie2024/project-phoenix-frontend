@@ -129,8 +129,8 @@ export function Landing() {
       {/* Features Section */}
       <div id="features" className="container mx-auto px-6 py-16">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Powerful Features for Modern Teams</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Everything you need to manage tasks efficiently and collaborate effectively.</p>
+          <h2 className="text-4xl font-bold mb-4">Application Capabilities</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">Core application functionality demonstrating full-stack development, secure user management, and collaborative workflows.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-20">
@@ -138,8 +138,8 @@ export function Landing() {
             <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
               <LayoutDashboard className="w-7 h-7" />
             </div>
-            <h3 className="text-xl font-bold mb-4">Interactive Kanban Board</h3>
-            <p className="text-gray-400 mb-6">Drag and drop tasks between columns with our intuitive visual interface designed for maximum productivity.</p>
+            <h3 className="text-xl font-bold mb-4">Task Management Workflow</h3>
+            <p className="text-gray-400 mb-6">A collaborative Kanban-style workflow allowing users to create, organize, and track tasks through different stages of completion.</p>
             <ul className="space-y-3">
               <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /> Real-time updates</li>
               <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /> Customizable workflows</li>
@@ -151,8 +151,8 @@ export function Landing() {
             <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
               <Users className="w-7 h-7" />
             </div>
-            <h3 className="text-xl font-bold mb-4">Team Collaboration</h3>
-            <p className="text-gray-400 mb-6">Built for teams to work together seamlessly with role-based access and real-time synchronization.</p>
+            <h3 className="text-xl font-bold mb-4">User Management & Collaboration</h3>
+            <p className="text-gray-400 mb-6">Multi-user functionality with structured collaboration features and role-based access control.</p>
             <ul className="space-y-3">
               <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /> Multi-user support</li>
               <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /> Role-based permissions</li>
@@ -164,8 +164,8 @@ export function Landing() {
             <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mb-6">
               <Shield className="w-7 h-7" />
             </div>
-            <h3 className="text-xl font-bold mb-4">Secure & Reliable</h3>
-            <p className="text-gray-400 mb-6">Enterprise-grade security with JWT authentication and encrypted data protection for peace of mind.</p>
+            <h3 className="text-xl font-bold mb-4">Application Security</h3>
+            <p className="text-gray-400 mb-6">Security-focused implementation using authentication mechanisms and protected application communication.</p>
             <ul className="space-y-3">
               <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /> JWT authentication</li>
               <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /> Encrypted sessions</li>

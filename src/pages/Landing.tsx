@@ -391,6 +391,81 @@ export function Landing() {
         </div>
       </div>
 
+      {/* DevOps Pipeline Section */}
+      <div id="pipeline" className="container mx-auto px-6 py-16">
+
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">
+            DevOps Pipeline
+          </h2>
+
+          <p className="text-gray-400 max-w-3xl mx-auto">
+            A complete cloud-native delivery workflow demonstrating
+            infrastructure automation, GitOps deployment, and production monitoring.
+          </p>
+        </div>
+
+
+        <div className="grid md:grid-cols-4 gap-6">
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 text-center">
+            <h3 className="font-bold mb-3">
+              Source Control
+            </h3>
+
+            <p className="text-gray-400">
+              GitHub Repository
+              <br />
+              Version Control
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 text-center">
+            <h3 className="font-bold mb-3">
+              Infrastructure
+            </h3>
+
+            <p className="text-gray-400">
+              Terraform
+              <br />
+              AWS Provisioning
+              <br />
+              Ansible Setup
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 text-center">
+            <h3 className="font-bold mb-3">
+              Deployment
+            </h3>
+
+            <p className="text-gray-400">
+              Docker Images
+              <br />
+              Kubernetes
+              <br />
+              Argo CD GitOps
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 text-center">
+            <h3 className="font-bold mb-3">
+              Operations
+            </h3>
+
+            <p className="text-gray-400">
+              Prometheus
+              <br />
+              Grafana
+              <br />
+              Application Monitoring
+            </p>
+          </div>
+        </div>
+      </div>
 
 
       {/* Demo Section */}

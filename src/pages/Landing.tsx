@@ -207,6 +207,76 @@ export function Landing() {
         </div>
       </div>
 
+      {/* Architecture Section */}
+      <div id="architecture" className="container mx-auto px-6 py-16">
+
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">
+            System Architecture
+          </h2>
+
+          <p className="text-gray-400 max-w-3xl mx-auto">
+             A production-style cloud-native architecture designed for
+             scalability, security, automation, and reliable application delivery.
+          </p>
+        </div>
+
+
+        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-8">
+
+          <div className="grid md:grid-cols-3 gap-6 text-center">
+
+            <div className="bg-gray-900 rounded-xl p-6">
+              <h3 className="text-xl font-bold mb-3">
+                Application Layer
+              </h3>
+
+              <p className="text-gray-400">
+                React Frontend
+                <br />
+                Flask REST API
+                <br />
+                PostgreSQL Database
+              </p>
+            </div>
+
+
+            <div className="bg-gray-900 rounded-xl p-6">
+              <h3 className="text-xl font-bold mb-3">
+                Infrastructure Layer
+              </h3>
+
+              <p className="text-gray-400">
+                Kubernetes (K3s)
+              <br />
+                AWS EC2
+              <br />
+                Terraform
+              <br />
+                Ansible
+              </p>
+            </div>
+
+
+            <div className="bg-gray-900 rounded-xl p-6">
+              <h3 className="text-xl font-bold mb-3">
+                Delivery & Operations
+              </h3>
+
+              <p className="text-gray-400">
+                Argo CD GitOps
+                <br />
+                Prometheus
+                <br />
+                Grafana
+                <br />
+                Secure TLS Delivery
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Demo Section */}
       <div className="container mx-auto px-6 py-16">
         <div className="bg-gradient-to-r from-blue-900/30 via-purple-900/30 to-pink-900/30 rounded-2xl p-8 md:p-12 border border-blue-800/30">

@@ -277,6 +277,122 @@ export function Landing() {
         </div>
       </div>
 
+      {/* Technology Stack Section */}
+      <div id="tech-stack" className="container mx-auto px-6 py-16">
+
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">
+            Technology Stack
+          </h2>
+
+          <p className="text-gray-400 max-w-3xl mx-auto">
+            A modern technology ecosystem combining application development,
+            infrastructure automation, cloud-native deployment, and observability.
+          </p>
+        </div>
+
+
+        <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Frontend
+            </h3>
+            <p className="text-gray-400">
+              React
+              <br />
+              TypeScript
+              <br />
+              Tailwind CSS
+              <br />
+              Vite
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Backend & Database
+            </h3>
+            <p className="text-gray-400">
+              Flask API
+              <br />
+              Python
+              <br />
+              PostgreSQL
+              <br />
+              Database Migration
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Infrastructure
+            </h3>
+            <p className="text-gray-400">
+              AWS EC2
+              <br />
+              Terraform
+              <br />
+              Ansible
+              <br />
+              Docker
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Platform & Delivery
+            </h3>
+            <p className="text-gray-400">
+              Kubernetes (K3s)
+              <br />
+              Argo CD
+              <br />
+              GitOps
+              <br />
+              Helm
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Security
+            </h3>
+            <p className="text-gray-400">
+              TLS Certificates
+              <br />
+              Network Policies
+              <br />
+              Sealed Secrets
+              <br />
+              Cert-Manager
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Observability
+            </h3>
+            <p className="text-gray-400">
+              Prometheus
+              <br />
+              Grafana
+              <br />
+              Metrics Server
+              <br />
+              Monitoring
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+
       {/* Demo Section */}
       <div className="container mx-auto px-6 py-16">
         <div className="bg-gradient-to-r from-blue-900/30 via-purple-900/30 to-pink-900/30 rounded-2xl p-8 md:p-12 border border-blue-800/30">

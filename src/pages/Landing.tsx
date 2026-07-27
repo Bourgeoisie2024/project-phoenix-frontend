@@ -628,10 +628,12 @@ export function Landing() {
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg">
                 <LayoutDashboard className="w-6 h-6" />
               </div>
-              <span className="text-xl font-bold">TeamFlow</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Project Phoenix
+              </span>
             </div>
             <p className="text-gray-400 max-w-md">
-              A cloud-native platform demonstrating full-stack engineering, infrastructure automation, and DevOps delivery practices.
+              A cloud-native DevOps portfolio demonstrating modern application delivery through Kubernetes, Infrastructure as Code, GitOps, and observability.
             </p>
           </div>
 
@@ -639,10 +641,10 @@ export function Landing() {
             <div className="mb-4">
               <div className="flex items-center justify-center md:justify-end gap-2 mb-2">
                 <Award className="w-5 h-5 text-yellow-400" />
-                <span className="font-semibold">Portfolio Project</span>
+                <span className="font-semibold">Cloud-Native DevOps Portfolio</span>
               </div>
 
-              <p className="text-gray-400">Engineered by</p>
+              <p className="text-gray-400">Designed & Engineered by</p>
 
               <p className="text-xl font-bold">
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -652,17 +654,38 @@ export function Landing() {
             </div>
 
             <div className="flex items-center justify-center md:justify-end gap-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Globe className="w-5 h-5" />
-              </a>
-              <span className="text-gray-500 text-sm">© 2026 TeamFlow. All rights reserved.</span>
+              <div className="flex items-center justify-center md:justify-end gap-5">
+                <a
+                  href="https://github.com/Bourgeoisie2024/capstone-phoenix"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  GitHub
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/al-ameen-olawale-bakare-0582b5192"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  LinkedIn
+                </a>
+
+                <span className="text-gray-500 text-sm">
+                  © 2026 Project Phoenix
+                </span>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-          <p>This project demonstrates full-stack development skills with React, TypeScript, Flask, and PostgreSQL.</p>
-          <p className="mt-2">Built with passion and attention to detail.</p>
+          <p>Built to demonstrate modern cloud-native application delivery using
+             IaC, GitOps, Kubernetes, observability, and secure DevOps practices.
+          </p>
+          <p className="mt-2">Project Phoenix • React • Flask • PostgreSQL • Kubernetes • Terraform • Ansible • Argo CD • Prometheus • Grafana</p>
         </div>
       </footer>
     </div>

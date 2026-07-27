@@ -12,7 +12,7 @@ export function Landing() {
               <LayoutDashboard className="w-6 h-6" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              TeamFlow
+              Project Phoenix
             </span>
           </div>
           <div className="flex items-center gap-6">
@@ -35,13 +35,13 @@ export function Landing() {
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Team Task Manager
+              Project Phoenix
             </span>
           </h1>
           
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Transform how your team collaborates with our intuitive Kanban-style board. 
-            Designed for modern teams who value efficiency, clarity, and seamless workflow.
+            A cloud-native application engineered with modern DevOps practices. 
+            Built with React, Kubernetes, Terraform, Argo CD, and observability tooling.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -169,7 +169,7 @@ export function Landing() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex-1">
               <h2 className="text-3xl font-bold mb-4">Try It Yourself</h2>
-              <p className="text-gray-300 mb-6">Experience the power of Team Task Manager with our live demo. No credit card required.</p>
+              <p className="text-gray-300 mb-6">Explore a production-style application deployed on Kubernetes with GitOps automation.</p>
               <div className="space-y-4">
                 <div className="p-4 bg-gray-900/50 rounded-lg">
                   <p className="text-sm text-gray-400 mb-2">Demo Credentials</p>
@@ -237,7 +237,7 @@ export function Landing() {
               <span className="text-xl font-bold">TeamFlow</span>
             </div>
             <p className="text-gray-400 max-w-md">
-              A modern task management solution built for teams that value productivity and collaboration.
+              A cloud-native platform demonstrating full-stack engineering, infrastructure automation, and DevOps delivery practices.
             </p>
           </div>
 
@@ -245,19 +245,14 @@ export function Landing() {
             <div className="mb-4">
               <div className="flex items-center justify-center md:justify-end gap-2 mb-2">
                 <Award className="w-5 h-5 text-yellow-400" />
-                <span className="font-semibold">Academic Project</span>
+                <span className="font-semibold">Portfolio Project</span>
               </div>
-              <p className="text-gray-400">Developed as part of</p>
-              <p className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                TS Academy
-              </p>
-            </div>
 
-            <div className="mb-4">
-              <p className="text-gray-400">Created by</p>
+              <p className="text-gray-400">Engineered by</p>
+
               <p className="text-xl font-bold">
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Oluwatobiloba Durodola
+                  Al-Ameen Olawale Bakare
                 </span>
               </p>
             </div>

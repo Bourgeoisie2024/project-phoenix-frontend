@@ -467,6 +467,95 @@ export function Landing() {
         </div>
       </div>
 
+      {/* Engineering Highlights Section */}
+      <div id="highlights" className="container mx-auto px-6 py-16">
+
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">
+            Engineering Highlights
+          </h2>
+
+          <p className="text-gray-400 max-w-3xl mx-auto">
+            Key engineering practices implemented to deliver a secure,
+            scalable, and production-style cloud-native platform.
+          </p>
+        </div>
+
+
+        <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Infrastructure as Code
+            </h3>
+
+            <p className="text-gray-400">
+              Automated AWS infrastructure provisioning using Terraform,
+              including networking, security groups, and reusable modules.
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Kubernetes Orchestration
+            </h3>
+
+            <p className="text-gray-400">
+              Multi-node Kubernetes deployment using K3s with scalable
+              workloads, service discovery, and production-style operations.
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              GitOps Deployment
+            </h3>
+
+            <p className="text-gray-400">
+              Declarative continuous delivery using Argo CD,
+              enabling automated Kubernetes synchronization.
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Security Engineering
+            </h3>
+
+            <p className="text-gray-400">
+              HTTPS/TLS, Network Policies, and secure secrets management
+              implemented for protected application delivery.
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Scalability
+            </h3>
+
+            <p className="text-gray-400">
+              Horizontal Pod Autoscaling and resource monitoring
+              configured to support changing workloads.
+            </p>
+          </div>
+
+
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+            <h3 className="text-xl font-bold mb-4">
+              Observability
+            </h3>
+
+            <p className="text-gray-400">
+              Prometheus and Grafana integration providing metrics,
+              dashboards, and operational visibility.
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Demo Section */}
       <div className="container mx-auto px-6 py-16">

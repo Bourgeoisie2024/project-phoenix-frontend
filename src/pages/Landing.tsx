@@ -178,8 +178,8 @@ export function Landing() {
       {/* How It Works */}
       <div id="how-it-works" className="container mx-auto px-6 py-16">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Simple Yet Powerful Workflow</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Get started in minutes and transform how your team works.</p>
+          <h2 className="text-4xl font-bold mb-4">Application Workflow</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">A streamlined workflow designed for efficient task management and team collaboration.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -187,22 +187,22 @@ export function Landing() {
             <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
               1
             </div>
-            <h3 className="text-xl font-bold mb-3">Sign In</h3>
-            <p className="text-gray-400">Use our demo credentials or create your own account to get started instantly.</p>
+            <h3 className="text-xl font-bold mb-3">Access the Platform</h3>
+            <p className="text-gray-400">Authenticate securely and access your personalized workspace.</p>
           </div>
           <div className="text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
               2
             </div>
-            <h3 className="text-xl font-bold mb-3">Organize Tasks</h3>
-            <p className="text-gray-400">Create tasks, set priorities, and organize them in the Kanban board.</p>
+            <h3 className="text-xl font-bold mb-3">Manage Tasks</h3>
+            <p className="text-gray-400">Create, prioritize, and organize work using the interactive Kanban workflow.</p>
           </div>
           <div className="text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-pink-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
               3
             </div>
-            <h3 className="text-xl font-bold mb-3">Collaborate & Track</h3>
-            <p className="text-gray-400">Drag tasks between columns and track progress in real-time with your team.</p>
+            <h3 className="text-xl font-bold mb-3">Track Progress</h3>
+            <p className="text-gray-400">Monitor task movement, collaborate efficiently, and maintain workflow visibility.</p>
           </div>
         </div>
       </div>

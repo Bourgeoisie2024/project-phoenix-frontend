@@ -14,11 +14,23 @@ export function Landing() {
             <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Project Phoenix
             </span>
-          </div>
+          </div>          
           <div className="flex items-center gap-6">
-            <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
-            <a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors">How It Works</a>
-            <Link to="/login" className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:opacity-90 transition-opacity">
+            <a href="#overview" className="text-gray-300 hover:text-white transition-colors">
+              Overview
+            </a>
+
+            <a href="#architecture" className="text-gray-300 hover:text-white transition-colors">
+              Architecture
+            </a>
+
+            <a href="#tech-stack" className="text-gray-300 hover:text-white transition-colors">
+              Technology Stack
+            </a>
+
+            <Link
+              to="/login"
+              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:opacity-90 transition-opacity">
               Sign In
             </Link>
           </div>
@@ -30,57 +42,89 @@ export function Landing() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-800/30 rounded-full px-4 py-2 mb-6">
             <Rocket className="w-4 h-4" />
-            <span className="text-sm font-medium">Supercharge Your Team's Productivity</span>
+            <span className="text-sm font-medium">Production-Ready DevOps Portfolio</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Project Phoenix
             </span>
+            <span className="block mt-4 text-2xl md:text-3xl font-medium text-gray-300">
+              Cloud-Native DevOps Engineering Portfolio
+            </span>            
           </h1>
-          
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            A cloud-native application engineered with modern DevOps practices. 
-            Built with React, Kubernetes, Terraform, Argo CD, and observability tooling.
+
+          <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+              A task management platform engineered with production-grade DevOps practices.
+            <span className="block mt-4">
+              Built with React, Flask, PostgreSQL, Kubernetes, Terraform, Ansible,
+              Argo CD, Prometheus, Grafana and secure application delivery.
+            </span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link
               to="/login"
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-3"
-            >
+              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-3">
               <Zap className="w-5 h-5" />
-              Get Started Free
+              View Live Application
             </Link>
             <a 
-              href="#features" 
-              className="px-8 py-4 bg-gray-800/50 border border-gray-700 rounded-xl hover:bg-gray-800 transition-all duration-300 font-semibold text-lg"
-            >
-              Explore Features
+              href="https://github.com/Bourgeoisie2024/capstone-phoenix/tree/capstone-build"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-gray-800 border border-gray-700 text-white rounded-xl hover:bg-gray-700 transition-all duration-300 font-semibold text-lg flex items-center justify-center">
+              View GitHub Repository
             </a>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            <div className="text-center p-4 bg-gray-800/30 rounded-xl">
-              <div className="text-3xl font-bold text-blue-400">99%</div>
-              <div className="text-gray-400">Team Efficiency</div>
-            </div>
-            <div className="text-center p-4 bg-gray-800/30 rounded-xl">
-              <div className="text-3xl font-bold text-purple-400">10x</div>
-              <div className="text-gray-400">Faster Task Completion</div>
-            </div>
-            <div className="text-center p-4 bg-gray-800/30 rounded-xl">
-              <div className="text-3xl font-bold text-pink-400">24/7</div>
-              <div className="text-gray-400">Accessibility</div>
-            </div>
-            <div className="text-center p-4 bg-gray-800/30 rounded-xl">
-              <div className="text-3xl font-bold text-green-400">∞</div>
-              <div className="text-gray-400">Scalability</div>
-            </div>
-          </div>
+          </div>   {/* closes max-w-4xl mx-auto text-center */}
+
+          </div>   {/* closes container mx-auto px-6 py-16 md:py-24 */}
+
+      {/* Project Overview */}
+      <div id="overview" className="container mx-auto px-6 py-16">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            Project Overview
+          </h2>
+
+          <p className="text-xl text-gray-300 leading-relaxed">
+            Project Phoenix is a production-style task management platform
+            designed to demonstrate modern cloud-native application delivery.
+          </p>
+
+          <p className="text-xl text-gray-300 leading-relaxed mt-6">
+            The application combines full-stack development with DevOps
+            engineering practices including Infrastructure as Code,
+            Kubernetes orchestration, GitOps automation, secure deployments,
+            and observability.
+          </p>
         </div>
-      </div>
+      </div>   
+
+      {/* Why This Application Matters */}
+      <div className="container mx-auto px-6 py-16">
+        <div className="max-w-4xl mx-auto text-center">
+
+          <h2 className="text-4xl font-bold mb-6">
+            Why This Application Matters
+          </h2>
+
+          <p className="text-xl text-gray-300 leading-relaxed">
+            Modern software teams require more than functional applications.
+            They need reliable systems that can be deployed, monitored,
+            scaled, and maintained efficiently.
+          </p>
+
+          <p className="text-xl text-gray-300 leading-relaxed mt-6">
+            Project Phoenix demonstrates a complete software delivery
+            lifecycle — from infrastructure provisioning and application
+            deployment to monitoring and continuous improvement.
+          </p>
+
+        </div>
+      </div> 
 
       {/* Features Section */}
       <div id="features" className="container mx-auto px-6 py-16">

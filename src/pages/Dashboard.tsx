@@ -81,15 +81,65 @@ export function Dashboard() {
   const doneTasks = tasks.filter((task) => task.status === 'done');
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
-        <div className="text-center">
-          <RefreshCw className="w-8 h-8 text-blue-600 animate-spin mx-auto mb-2" />
-          <p className="text-gray-600">Loading tasks...</p>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        {/* Summary skeleton */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {[1, 2, 3, 4].map((item) => (
+            <div
+              key={item}
+              className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm animate-pulse"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-gray-200 rounded-full" />
+
+                <div className="flex-1">
+                  <div className="h-3 bg-gray-200 rounded w-20 mb-3" />
+                  <div className="h-6 bg-gray-200 rounded w-12" />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+
+
+        {/* Kanban skeleton */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+          {[1, 2, 3].map((column) => (
+            <div
+              key={column}
+              className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm animate-pulse"
+            >
+              <div className="flex justify-between mb-5">
+                <div className="h-5 bg-gray-200 rounded w-24" />
+                <div className="h-7 w-7 bg-gray-200 rounded-full" />
+              </div>
+
+              <div className="space-y-3">
+
+                {[1, 2].map((card) => (
+                  <div
+                    key={card}
+                    className="bg-gray-100 rounded-lg p-4"
+                  >
+                    <div className="h-4 bg-gray-200 rounded w-3/4 mb-3" />
+                    <div className="h-3 bg-gray-200 rounded w-full mb-2" />
+                    <div className="h-3 bg-gray-200 rounded w-1/2" />
+                  </div>
+                ))}
+
+              </div>
+            </div>
+          ))}
+
+        </div>
+
       </div>
-    );
-  }
+    </div>
+  );}
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
@@ -207,7 +257,7 @@ export function Dashboard() {
               </div>
             </div>
           </div>
-          
+
         </div>
         {error && (
           <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">

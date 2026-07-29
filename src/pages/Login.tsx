@@ -62,7 +62,7 @@ export function Login() {
                 </span>
               </h2>
               <p className="text-gray-300 text-lg mb-8">
-                Sign in to explore a production-style DevOps platform showcasing Kubernetes, Infrastructure as Code, GitOps, observability, and secure application delivery.
+                Sign in to explore a production-style DevOps platform demonstrating Kubernetes, Infrastructure as Code, GitOps, observability, and secure application delivery.
               </p>
             </div>
 
@@ -74,7 +74,7 @@ export function Login() {
                 <div>
                   <h3 className="font-semibold mb-1">Production Infrastructure</h3>
                   <p className="text-gray-400 text-sm">
-                    Built with Terraform, Ansible, AWS, and Kubernetes following production-style deployment practices.
+                    Provisioned with Terraform and Ansible, deployed on AWS, and orchestrated with Kubernetes.
                   </p>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export function Login() {
                 <div>
                   <h3 className="font-semibold mb-1">Secure Application Delivery</h3>
                   <p className="text-gray-400 text-sm">
-                    Implements JWT authentication, role-based access control, encrypted communication, and security best practices.
+                    Implements JWT authentication, role-based access control, and secure communication.
                   </p>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export function Login() {
                 <div>
                   <h3 className="font-semibold mb-1">GitOps & Observability</h3>
                   <p className="text-gray-400 text-sm">
-                    Demonstrates continuous delivery using Argo CD alongside monitoring with Prometheus and Grafana.
+                    Continuous delivery with Argo CD and monitoring using Prometheus and Grafana.
                   </p>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export function Login() {
                   <LogIn className="w-8 h-8" />
                 </div>
                 <h2 className="text-2xl font-bold mb-2">Sign In to Project Phoenix</h2>
-                <p className="text-gray-400">Enter your credentials to access the platform</p>
+                <p className="text-gray-400">Enter your credentials to access the demonstration environment</p>
               </div>
 
               {error && (
@@ -231,7 +231,7 @@ export function Login() {
                 {/* Demo Credentials */}
                 <div className="space-y-4">
                   <div className="text-center">
-                    <p className="text-sm text-gray-400 mb-3">Try with demo credentials:</p>
+                    <p className="text-sm text-gray-400 mb-3">Demo Accounts:</p>
                     <div className="grid grid-cols-2 gap-3">
                       <button
                         type="button"
@@ -286,12 +286,16 @@ export function Login() {
             <div className="px-8 py-6 bg-gradient-to-r from-gray-900 to-gray-800 border-t border-gray-700">
               <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="text-center md:text-left">
-                  <p className="text-sm text-gray-400">
-                    Need help?{' '}
-                    <a href="#" className="text-blue-400 hover:text-blue-300 font-medium whitespace-nowrap">
-                      Contact support
-                    </a>
+                  <p className="text-sm text-gray-400 font-medium whitespace-nowrap">
+                    Portfolio Demo
                   </p>
+
+                  <Link
+                    to="/"
+                    className="text-sm text-blue-400 hover:text-blue-300 transition-colors font-medium whitespace-nowrap"
+                  >
+                    ← Back to Home
+                  </Link>
                 </div>
                 <div className="text-center md:text-right">
                   <p className="text-xs text-gray-500">

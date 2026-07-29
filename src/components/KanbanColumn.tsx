@@ -44,17 +44,17 @@ export function KanbanColumn({
   };
 
   return (
-    <div className={`flex-1 min-w-0 rounded-lg border-2 ${statusColors[status]} p-4`}>
-      <div className="flex items-center justify-between mb-4">
+    <div className={`flex-1 min-w-0 rounded-2xl border ${statusColors[status]} p-5 shadow-sm hover:shadow-md transition-shadow duration-300`}>
+      <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2">
-          <h2 className="font-semibold text-gray-900">{title}</h2>
-          <span className="inline-flex items-center justify-center w-6 h-6 text-xs font-medium bg-white rounded-full border border-gray-300">
+          <h2 className="font-bold text-gray-900 uppercase tracking-wide text-sm">{title}</h2>
+          <span className="inline-flex items-center justify-center min-w-7 h-7 px-2 text-xs font-semibold bg-white rounded-full border border-gray-300 shadow-sm">
             {tasks.length}
           </span>
         </div>
         <button
           onClick={() => onAddTask(status)}
-          className="text-gray-600 hover:text-gray-900 transition-colors"
+          className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-white transition-all duration-300"
           aria-label="Add task"
         >
           <Plus className="w-5 h-5" />

@@ -93,8 +93,8 @@ export function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <header className="bg-white border-b border-gray-200 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12">
                 <img
@@ -121,24 +121,24 @@ export function Dashboard() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col min-[390px]:flex-row min-[390px]:flex-wrap min-[390px]:justify-end items-stretch min-[390px]:items-center gap-3 w-full lg:w-auto">
               <button
                 onClick={loadTasks}
-                className="p-3 rounded-xl border border-gray-200 hover:bg-gray-100 transition-all duration-300"
+                className="w-full min-[390px]:w-auto p-3 rounded-xl border border-gray-200 hover:bg-gray-100 transition-all duration-300"
                 aria-label="Refresh tasks"
               >
                 <RefreshCw className="w-5 h-5" />
               </button>
               <button
                 onClick={() => handleAddTask('todo')}
-                className="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300"
+                className="flex items-center justify-center gap-2 whitespace-nowrap w-full min-[390px]:w-auto px-5 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300"
               >
                 <Plus className="w-5 h-5" />
                 New Task
               </button>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 px-5 py-3 border border-gray-300 rounded-xl font-medium hover:bg-gray-100 transition-all duration-300"
+                className="flex items-center justify-center gap-2 whitespace-nowrap w-full min-[390px]:w-auto px-5 py-3 border border-gray-300 rounded-xl font-medium hover:bg-gray-100 transition-all duration-300"
               >
                 <LogOut className="w-5 h-5" />
                 Logout
@@ -155,7 +155,7 @@ export function Dashboard() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <KanbanColumn
             title="To Do"
             status="todo"

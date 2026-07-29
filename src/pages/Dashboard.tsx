@@ -14,6 +14,7 @@ export function Dashboard() {
   const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [initialStatus, setInitialStatus] = useState<Status>('todo');
+  const [editingTask, setEditingTask] = useState<Task | null>(null);
   const { user, logout, token } = useAuth();
   const navigate = useNavigate();
 
@@ -44,6 +45,26 @@ export function Dashboard() {
     }
   };
 
+  const handleUpdateTask = async (
+    id: number,
+    updates: CreateTaskInput
+  ) => {
+    try {
+      const updatedTask = await taskApi.updateTask(id, updates);
+
+      setTasks((prev) =>
+        prev.map((task) =>
+          task.id === id ? updatedTask : task
+        )
+      );
+
+      setEditingTask(null);
+      setShowForm(false);
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Failed to update task');
+    }
+  };
+
   const handleDeleteTask = async (id: number) => {
     if (!confirm('Are you sure you want to delete this task?')) return;
 
@@ -67,8 +88,14 @@ export function Dashboard() {
   };
 
   const handleAddTask = (status: Status) => {
-    setInitialStatus(status);
-    setShowForm(true);
+  setEditingTask(null);
+  setInitialStatus(status);
+  setShowForm(true);
+  };
+
+  const handleEditTask = (task: Task) => {
+  setEditingTask(task);
+  setShowForm(true);
   };
 
   const handleLogout = () => {
@@ -271,7 +298,10 @@ export function Dashboard() {
             status="todo"
             tasks={todoTasks}
             onDelete={handleDeleteTask}
-            onEdit={(task) => console.log('Edit task:', task)}
+            onEdit={(task) => {
+              setEditingTask(task);
+              setShowForm(true);
+            }}
             onAddTask={handleAddTask}
             onDrop={handleUpdateTaskStatus}
           />
@@ -280,7 +310,10 @@ export function Dashboard() {
             status="in_progress"
             tasks={inProgressTasks}
             onDelete={handleDeleteTask}
-            onEdit={(task) => console.log('Edit task:', task)}
+            onEdit={(task) => {
+              setEditingTask(task);
+              setShowForm(true);
+            }}
             onAddTask={handleAddTask}
             onDrop={handleUpdateTaskStatus}
           />
@@ -289,7 +322,10 @@ export function Dashboard() {
             status="done"
             tasks={doneTasks}
             onDelete={handleDeleteTask}
-            onEdit={(task) => console.log('Edit task:', task)}
+            onEdit={(task) => {
+              setEditingTask(task);
+              setShowForm(true);
+            }}
             onAddTask={handleAddTask}
             onDrop={handleUpdateTaskStatus}
           />
@@ -298,9 +334,20 @@ export function Dashboard() {
 
       {showForm && (
         <TaskForm
-          onSubmit={handleCreateTask}
-          onClose={() => setShowForm(false)}
+          initialTask={editingTask ?? undefined}
+          onSubmit={(taskData) => {
+            if (editingTask) {
+              handleUpdateTask(editingTask.id, taskData);
+            } else {
+              handleCreateTask(taskData);
+            }
+          }}
+          onClose={() => {
+            setEditingTask(null);
+            setShowForm(false);
+          }}
           initialStatus={initialStatus}
+          submitLabel={editingTask ? "Save Changes" : "Create Task"}
         />
       )}
     </div>

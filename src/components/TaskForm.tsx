@@ -6,13 +6,32 @@ interface TaskFormProps {
   onSubmit: (task: CreateTaskInput) => void;
   onClose: () => void;
   initialStatus?: Status;
+
+  initialTask?: {
+    title: string;
+    description: string;
+    priority: Priority;
+    status: Status;
+  };
+
+  submitLabel?: string;
 }
 
-export function TaskForm({ onSubmit, onClose, initialStatus = 'todo' }: TaskFormProps) {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [priority, setPriority] = useState<Priority>('medium');
-  const [status, setStatus] = useState<Status>(initialStatus);
+export function TaskForm({
+  onSubmit,
+  onClose,
+  initialStatus = 'todo',
+  initialTask,
+  submitLabel = 'Create Task',
+}: TaskFormProps) {
+  const [title, setTitle] = useState(initialTask?.title ?? '');
+  const [description, setDescription] = useState(initialTask?.description ?? '');
+  const [priority, setPriority] = useState<Priority>(
+    initialTask?.priority ?? 'medium'
+);
+  const [status, setStatus] = useState<Status>(
+    initialTask?.status ?? initialStatus
+);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -35,7 +54,7 @@ export function TaskForm({ onSubmit, onClose, initialStatus = 'todo' }: TaskForm
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-900">Create New Task</h2>
+          <h2 className="text-xl font-semibold text-gray-900">{initialTask ? 'Edit Task' : 'Create New Task'}</h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 transition-colors"
@@ -119,7 +138,7 @@ export function TaskForm({ onSubmit, onClose, initialStatus = 'todo' }: TaskForm
               type="submit"
               className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
-              Create Task
+              {submitLabel}
             </button>
           </div>
         </form>

@@ -5,7 +5,8 @@ import { Task, CreateTaskInput, Status } from '../types/task';
 import { taskApi } from '../services/api';
 import { KanbanColumn } from '../components/KanbanColumn';
 import { TaskForm } from '../components/TaskForm';
-import { LayoutDashboard, Plus, RefreshCw, LogOut } from 'lucide-react';
+import { LayoutDashboard, Plus, RefreshCw, LogOut, CheckCircle2, Clock3, ListTodo } from 'lucide-react';
+
 
 export function Dashboard() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -149,6 +150,65 @@ export function Dashboard() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+
+          <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+            <div className="flex items-center gap-3">
+              <ListTodo className="w-8 h-8 text-blue-500" />
+              <div>
+                <p className="text-sm text-gray-500">
+                  Total Tasks
+                </p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {tasks.length}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+            <div className="flex items-center gap-3">
+              <ListTodo className="w-8 h-8 text-gray-400" />
+              <div>
+                <p className="text-sm text-gray-500">
+                  To Do
+                </p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {todoTasks.length}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+            <div className="flex items-center gap-3">
+              <Clock3 className="w-8 h-8 text-blue-500" />
+              <div>
+                <p className="text-sm text-gray-500">
+                  In Progress
+                </p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {inProgressTasks.length}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="w-8 h-8 text-green-500" />
+              <div>
+                <p className="text-sm text-gray-500">
+                  Completed
+                </p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {doneTasks.length}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
         {error && (
           <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
             <p className="text-red-800">{error}</p>

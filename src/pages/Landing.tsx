@@ -1,60 +1,139 @@
+import { useState } from "react";
 import { Link } from 'react-router-dom';
-import { CheckCircle, LayoutDashboard, Users, Zap, Shield, Globe, Rocket, Star, Award } from 'lucide-react';
+import { CheckCircle, LayoutDashboard, Users, Zap, Shield, Rocket, Award, Menu, X } from 'lucide-react';
 
 export function Landing() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {/* Navigation */}
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg">
-              <LayoutDashboard className="w-6 h-6" />
+          <div className="flex items-center gap-1">
+            <div className="w-10 h-10">
+              <img
+                src="/phoenix.svg"
+                alt="Project Phoenix"
+                className="w-full h-full"
+              />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Project Phoenix
             </span>
           </div>          
-          <div className="flex items-center gap-6">
-            <a href="#overview" className="text-gray-300 hover:text-white transition-colors">
+          <div className="hidden lg:flex items-center gap-4">
+            <a
+              href="#overview"
+              className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
+            >
               Overview
             </a>
 
-            <a href="#architecture" className="text-gray-300 hover:text-white transition-colors">
+            <a
+              href="#architecture"
+              className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
+            >
               Architecture
             </a>
 
-            <a href="#tech-stack" className="text-gray-300 hover:text-white transition-colors">
-              Technology Stack
+            <a
+              href="#pipeline"
+              className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
+            >
+              Pipeline
+            </a>
+
+            <a
+              href="#experience"
+              className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
+            >
+              Experience
             </a>
 
             <Link
               to="/login"
-              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:opacity-90 transition-opacity">
+              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:opacity-90 transition-opacity"
+            >
               Sign In
             </Link>
           </div>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors"
+            aria-label="Toggle navigation menu">
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
+        {mobileMenuOpen && (
+          <div className="lg:hidden mt-4 border-t border-gray-700 pt-4">
+            <div className="flex flex-col gap-4">
+
+              <a
+                href="#overview"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
+              >
+                Overview
+              </a>
+
+              <a
+                href="#architecture"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
+              >
+                Architecture
+              </a>
+
+              <a
+                href="#pipeline"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
+              >
+                Pipeline
+              </a>
+
+              <a
+                href="#experience"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
+              >
+                Experience
+              </a>
+
+              <Link
+                to="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
+              >
+                Sign In
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-16 md:py-24">
+      <div className="container mx-auto px-6 py-12 md:py-16">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-800/30 rounded-full px-4 py-2 mb-6">
             <Rocket className="w-4 h-4" />
             <span className="text-sm font-medium">Production-Ready DevOps Portfolio</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Project Phoenix
             </span>
-            <span className="block mt-4 text-2xl md:text-3xl font-medium text-gray-300">
+            <span className="block mt-4 text-1xl md:text-3xl font-medium text-gray-300">
               Cloud-Native DevOps Engineering Portfolio
             </span>            
           </h1>
 
-          <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-1.5xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
               A task management platform engineered with production-grade DevOps practices.
             <span className="block mt-4">
               Built with React, Flask, PostgreSQL, Kubernetes, Terraform, Ansible,
@@ -83,7 +162,7 @@ export function Landing() {
           </div>   {/* closes container mx-auto px-6 py-16 md:py-24 */}
 
       {/* Project Overview */}
-      <div id="overview" className="container mx-auto px-6 py-16">
+      <div id="overview" className="container mx-auto px-6 py-16 md:py-1">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Project Overview
@@ -112,9 +191,8 @@ export function Landing() {
           </h2>
 
           <p className="text-xl text-gray-300 leading-relaxed">
-            Modern software teams require more than functional applications.
-            They need reliable systems that can be deployed, monitored,
-            scaled, and maintained efficiently.
+            Modern software teams need more than functional applications. They need 
+            reliable systems that are deployable, scalable, observable, and easy to maintain.
           </p>
 
           <p className="text-xl text-gray-300 leading-relaxed mt-6">
@@ -127,7 +205,7 @@ export function Landing() {
       </div> 
 
       {/* Features Section */}
-      <div id="features" className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 py-16">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Application Capabilities</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">Core application functionality demonstrating full-stack development, secure user management, and collaborative workflows.</p>
@@ -176,7 +254,7 @@ export function Landing() {
       </div>
 
       {/* How It Works */}
-      <div id="how-it-works" className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 py-16 md:py-1">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Application Workflow</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">A streamlined workflow designed for efficient task management and team collaboration.</p>
@@ -278,7 +356,7 @@ export function Landing() {
       </div>
 
       {/* Technology Stack Section */}
-      <div id="tech-stack" className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 py-16">
 
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
@@ -476,8 +554,7 @@ export function Landing() {
           </h2>
 
           <p className="text-gray-400 max-w-3xl mx-auto">
-            Key engineering practices implemented to deliver a secure,
-            scalable, and production-style cloud-native platform.
+            Key engineering practices behind a secure, scalable, production-grade platform.
           </p>
         </div>
 
@@ -558,12 +635,12 @@ export function Landing() {
       </div>
 
       {/* Demo Section */}
-      <div className="container mx-auto px-6 py-16">
+      <div id="experience" className="container mx-auto px-6 py-16">
         <div className="bg-gradient-to-r from-blue-900/30 via-purple-900/30 to-pink-900/30 rounded-2xl p-8 md:p-12 border border-blue-800/30">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex-1">
               <h2 className="text-3xl font-bold mb-4">Experience Project Phoenix</h2>
-              <p className="text-gray-300 mb-6">Experience a cloud-native task management platform deployed on Kubernetes using Infrastructure as Code, GitOps, automated CI/CD, and modern observability practices.</p>
+              <p className="text-gray-300 mb-6">Experience a task management platform deployed on Kubernetes using Infrastructure as Code, GitOps, automated CI/CD, and modern observability practices.</p>
               <div className="space-y-4">
                 <div className="p-4 bg-gray-900/50 rounded-lg">
                   <p className="text-sm text-gray-400 mb-2">Demo Access</p>
@@ -579,10 +656,10 @@ export function Landing() {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <div className="flex flex-col sm:flex-row gap-8 mt-6">
                   <Link
                     to="/login"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+                    className="inline-flex whitespace-nowrap items-center justify-center gap-2 px-2 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300"
                   >
                     <Zap className="w-5 h-5" />
                     Launch Application
@@ -592,7 +669,7 @@ export function Landing() {
                     href="https://github.com/Bourgeoisie2024/capstone-phoenix"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-600 rounded-lg hover:border-blue-500 hover:text-white transition-colors font-semibold"
+                    className="inline-flex whitespace-nowrap items-center justify-center gap-2 px-2 py-3 border border-gray-600 rounded-lg hover:border-blue-500 hover:text-white transition-colors font-semibold"
                   >
                     View Repository
                   </a>
@@ -609,18 +686,18 @@ export function Landing() {
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                   <div className="bg-gray-800 p-3 rounded-lg">
-                    <div className="text-sm text-gray-400 mb-1">To Do</div>
+                    <div className="text-xs text-gray-400 mb-1">To Do</div>
                     <div className="h-2 bg-blue-500 rounded-full mb-2"></div>
                     <div className="h-2 bg-blue-400 rounded-full mb-2"></div>
                     <div className="h-2 bg-blue-300 rounded-full"></div>
                   </div>
-                  <div className="bg-gray-800 p-3 rounded-lg">
-                    <div className="text-sm text-gray-400 mb-1">In Progress</div>
+                  <div className="bg-gray-800 p-1 rounded-lg">
+                    <div className="text-xs text-gray-400 mb-1 transform translate-y-1">In Progress</div>
                     <div className="h-2 bg-purple-500 rounded-full mb-2"></div>
                     <div className="h-2 bg-purple-400 rounded-full"></div>
                   </div>
                   <div className="bg-gray-800 p-3 rounded-lg">
-                    <div className="text-sm text-gray-400 mb-1">Done</div>
+                    <div className="text-xs text-gray-400 mb-1">Done</div>
                     <div className="h-2 bg-green-500 rounded-full mb-2"></div>
                     <div className="h-2 bg-green-400 rounded-full mb-2"></div>
                     <div className="h-2 bg-green-300 rounded-full mb-2"></div>
@@ -638,15 +715,19 @@ export function Landing() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg">
-                <LayoutDashboard className="w-6 h-6" />
+              <div className="w-10 h-10">
+                <img
+                  src="/phoenix.svg"
+                  alt="Project Phoenix"
+                  className="w-full h-full"
+                />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Project Phoenix
               </span>
             </div>
             <p className="text-gray-400 max-w-md">
-              A cloud-native DevOps portfolio demonstrating modern application delivery through Kubernetes, Infrastructure as Code, GitOps, and observability.
+              A DevOps portfolio demonstrating Kubernetes, IaC, GitOps, and modern observability.
             </p>
           </div>
 
@@ -666,13 +747,13 @@ export function Landing() {
               </p>
             </div>
 
-            <div className="flex items-center justify-center md:justify-end gap-4">
-              <div className="flex items-center justify-center md:justify-end gap-5">
+            <div className="flex flex-col items-center md:items-end gap-2">
+              <div className="flex justify-center md:justify-end gap-5">
                 <a
                   href="https://github.com/Bourgeoisie2024/capstone-phoenix"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
                 >
                   GitHub
                 </a>
@@ -681,22 +762,22 @@ export function Landing() {
                   href="https://www.linkedin.com/in/al-ameen-olawale-bakare-0582b5192"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
                 >
                   LinkedIn
                 </a>
-
-                <span className="text-gray-500 text-sm">
-                  © 2026 Project Phoenix
-                </span>
-              </div>
+              </div>  
+                
+              <p className="text-gray-500 text-sm">
+                © 2026 Project Phoenix
+              </p>
             </div>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
           <p>Built to demonstrate modern cloud-native application delivery using
-             IaC, GitOps, Kubernetes, observability, and secure DevOps practices.
+             IaC, GitOps, K8s, observability, and secure DevOps practices.
           </p>
           <p className="mt-2">Project Phoenix • React • Flask • PostgreSQL • Kubernetes • Terraform • Ansible • Argo CD • Prometheus • Grafana</p>
         </div>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Task, Status } from '../types/task';
 import { TaskCard } from './TaskCard';
 import { Plus, ClipboardList } from 'lucide-react';
@@ -27,12 +28,20 @@ export function KanbanColumn({
   onAddTask,
   onDrop,
 }: KanbanColumnProps) {
+  const [isDragOver, setIsDragOver] = useState(false);
+
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = () => {
+    setIsDragOver(false);
   };
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
+    setIsDragOver(false);
     const taskId = parseInt(e.dataTransfer.getData('taskId'));
     if (taskId) {
       onDrop(taskId, status);
@@ -63,8 +72,13 @@ export function KanbanColumn({
 
       <div
         onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        className="space-y-3 min-h-[200px]"
+        className={`space-y-3 min-h-[200px] rounded-xl transition-all duration-200 ${
+          isDragOver
+          ? 'bg-blue-50 ring-2 ring-blue-400 ring-offset-2'
+          : ''
+        }`}
       >
         {tasks.map((task) => (
           <div

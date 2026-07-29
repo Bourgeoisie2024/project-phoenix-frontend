@@ -1,5 +1,5 @@
 import { Task, Priority } from '../types/task';
-import { Trash2, GripVertical } from 'lucide-react';
+import { Trash2, GripVertical, Pencil } from 'lucide-react';
 
 interface TaskCardProps {
   task: Task;
@@ -25,20 +25,32 @@ export function TaskCard({ task, onDelete, onEdit }: TaskCardProps) {
           )}
           <div className="flex items-center justify-between">
             <span
-              className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide ${
+              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                 priorityColors[task.priority]
               }`}
             >
               {task.priority}
             </span>
+
+            <div className="flex items-center gap-2">
+
+            <button
+              onClick={() => onEdit(task)}
+              className="text-gray-400 hover:text-blue-600 transition-colors"
+              aria-label="Edit task"
+            >
+              <Pencil className="w-4 h-4" />
+            </button>
+
             <button
               onClick={() => onDelete(task.id)}
-              className="p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-all duration-300"
+              className="text-gray-400 hover:text-red-600 transition-colors"
               aria-label="Delete task"
             >
               <Trash2 className="w-4 h-4" />
             </button>
           </div>
+        </div>
         </div>
       </div>
     </div>

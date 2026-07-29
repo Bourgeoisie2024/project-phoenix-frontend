@@ -39,14 +39,18 @@ export function Login() {
           {/* Left Side - Brand & Info */}
           <div className="space-y-8">
             <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-xl">
-                <Server className="w-8 h-8" />
+              <div className="w-14 h-14">
+                <img
+                  src="/phoenix.svg"
+                  alt="Project Phoenix"
+                  className="w-full h-full"
+                />
               </div>
               <div>
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  TeamFlow
+                  Project Phoenix
                 </h1>
-                <p className="text-gray-400">DevOps Task Management Platform</p>
+                <p className="text-gray-400">Cloud-Native DevOps Engineering Portfolio</p>
               </div>
             </div>
 
@@ -54,11 +58,11 @@ export function Login() {
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 Welcome to{' '}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  DevOps Hub
+                  Project Phoenix
                 </span>
               </h2>
               <p className="text-gray-300 text-lg mb-8">
-                Manage your infrastructure, deployments, and team tasks in one unified platform built for DevOps excellence.
+                Sign in to explore a production-style DevOps platform showcasing Kubernetes, Infrastructure as Code, GitOps, observability, and secure application delivery.
               </p>
             </div>
 
@@ -68,9 +72,9 @@ export function Login() {
                   <Cpu className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Infrastructure Focused</h3>
+                  <h3 className="font-semibold mb-1">Production Infrastructure</h3>
                   <p className="text-gray-400 text-sm">
-                    Designed specifically for DevOps workflows, CI/CD pipelines, and infrastructure management.
+                    Built with Terraform, Ansible, AWS, and Kubernetes following production-style deployment practices.
                   </p>
                 </div>
               </div>
@@ -80,9 +84,9 @@ export function Login() {
                   <Shield className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Enterprise Security</h3>
+                  <h3 className="font-semibold mb-1">Secure Application Delivery</h3>
                   <p className="text-gray-400 text-sm">
-                    Built with DevSecOps principles, featuring JWT tokens, encrypted sessions, and audit logging.
+                    Implements JWT authentication, role-based access control, encrypted communication, and security best practices.
                   </p>
                 </div>
               </div>
@@ -92,9 +96,9 @@ export function Login() {
                   <Brain className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Automation Ready</h3>
+                  <h3 className="font-semibold mb-1">GitOps & Observability</h3>
                   <p className="text-gray-400 text-sm">
-                    Integrates with your existing DevOps toolchain for seamless automation and workflow management.
+                    Demonstrates continuous delivery using Argo CD alongside monitoring with Prometheus and Grafana.
                   </p>
                 </div>
               </div>
@@ -103,15 +107,15 @@ export function Login() {
             {/* Project Info - Simplified */}
             <div className="mt-8 p-6 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-2xl border border-gray-700">
               <div className="space-y-3">
-                <p className="text-sm text-gray-400">Developed by</p>
+                <p className="text-sm text-gray-400">Designed & Engineered by</p>
                 <p className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Oluwatobiloba
+                  Al-Ameen Olawale Bakare
                 </p>
                 <p className="text-gray-300 font-medium">DevOps Engineer</p>
                 <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent my-3"></div>
-                <p className="text-sm text-gray-400">Capstone Project</p>
-                <p className="text-lg font-bold text-white">DevOps Engineering Program</p>
-                <p className="text-gray-300">TS Academy • 2026</p>
+                <p className="text-sm text-gray-400">Portfolio Project</p>
+                <p className="text-lg font-bold text-white">Project Phoenix</p>
+                <p className="text-gray-300">TS Academy DevOps Capstone • 2026</p>
               </div>
             </div>
           </div>
@@ -123,7 +127,7 @@ export function Login() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-4">
                   <LogIn className="w-8 h-8" />
                 </div>
-                <h2 className="text-2xl font-bold mb-2">Sign In to DevOps Hub</h2>
+                <h2 className="text-2xl font-bold mb-2">Sign In to Project Phoenix</h2>
                 <p className="text-gray-400">Enter your credentials to access the platform</p>
               </div>
 
@@ -284,14 +288,14 @@ export function Login() {
                 <div className="text-center md:text-left">
                   <p className="text-sm text-gray-400">
                     Need help?{' '}
-                    <a href="#" className="text-blue-400 hover:text-blue-300 font-medium">
+                    <a href="#" className="text-blue-400 hover:text-blue-300 font-medium whitespace-nowrap">
                       Contact support
                     </a>
                   </p>
                 </div>
                 <div className="text-center md:text-right">
                   <p className="text-xs text-gray-500">
-                    © 2026 TeamFlow • DevOps Engineering Program • Created by Oluwatobiloba (DevOps Engineer)
+                    © 2026 Project Phoenix • Designed by Al-Ameen Olawale Bakare (DevOps Engineer)
                   </p>
                 </div>
               </div>

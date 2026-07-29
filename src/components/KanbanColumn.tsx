@@ -1,6 +1,6 @@
 import { Task, Status } from '../types/task';
 import { TaskCard } from './TaskCard';
-import { Plus } from 'lucide-react';
+import { Plus, ClipboardList } from 'lucide-react';
 
 interface KanbanColumnProps {
   title: string;
@@ -78,8 +78,19 @@ export function KanbanColumn({
         ))}
 
         {tasks.length === 0 && (
-          <div className="text-center py-8 text-gray-400 text-sm">
-            No tasks yet
+          <div className="flex flex-col items-center justify-center py-8 text-center">
+            <ClipboardList className="w-8 h-8 text-gray-300 mb-3" />
+
+            <p className="text-sm font-medium text-gray-500">
+              No tasks yet
+            </p>
+
+            <button
+              onClick={() => onAddTask(status)}
+              className="mt-3 text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors"
+            >
+              Create your first task
+            </button>
           </div>
         )}
       </div>

@@ -90,8 +90,10 @@ export function Dashboard() {
 
       setTaskToDelete(null);
 
+      toast.success("Task deleted successfully");
+
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to delete task');
+      toast.error(err instanceof Error ? err.message : 'Failed to delete task');
     }
   };
 

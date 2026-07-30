@@ -104,7 +104,7 @@ export function Dashboard() {
         prev.map((task) => (task.id === taskId ? updatedTask : task))
       );
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to update task');
+      toast.error(err instanceof Error ? err.message : 'Failed to update task');
     }
   };
 

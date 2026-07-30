@@ -2,7 +2,7 @@ import { toast } from 'react-hot-toast';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Task, CreateTaskInput, Status } from '../types/task';
+import { Task, CreateTaskInput, Status, Priority } from '../types/task';
 import { taskApi } from '../services/api';
 import { KanbanColumn } from '../components/KanbanColumn';
 import { TaskForm } from '../components/TaskForm';
@@ -20,6 +20,9 @@ export function Dashboard() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<
     'all' | Status
+  >('all');
+  const [priorityFilter, setPriorityFilter] = useState<
+  'all' | Priority
   >('all');
   const [taskToDelete, setTaskToDelete] = useState<Task | null>(null);
   const { user, logout, token } = useAuth();
@@ -139,7 +142,15 @@ export function Dashboard() {
       statusFilter === 'all' ||
       task.status === statusFilter;
 
-    return matchesSearch && matchesStatus;
+    const matchesPriority =
+      priorityFilter === 'all' ||
+      task.priority === priorityFilter;
+
+    return (
+      matchesSearch &&
+      matchesStatus &&
+      matchesPriority
+    );
   });
 
   const todoTasks = filteredTasks.filter(
@@ -363,6 +374,19 @@ export function Dashboard() {
             <option value="todo">To Do</option>
             <option value="in_progress">In Progress</option>
             <option value="done">Done</option>
+          </select>
+
+          <select
+            value={priorityFilter}
+            onChange={(e) =>
+              setPriorityFilter(e.target.value as 'all' | Priority)
+            }
+            className="rounded-xl border border-gray-300 bg-white px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent md:w-56"
+          >
+            <option value="all">All Priorities</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
           </select>
         </div>
 

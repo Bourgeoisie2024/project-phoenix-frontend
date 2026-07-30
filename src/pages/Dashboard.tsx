@@ -1,3 +1,4 @@
+import { toast } from 'react-hot-toast';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -42,8 +43,9 @@ export function Dashboard() {
       const newTask = await taskApi.createTask(taskInput);
       setTasks((prev) => [newTask, ...prev]);
       setShowForm(false);
+      toast.success('Task created successfully');
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to create task');
+      toast.error(err instanceof Error ? err.message : 'Failed to create task');
     }
   };
 
@@ -62,8 +64,9 @@ export function Dashboard() {
 
       setEditingTask(null);
       setShowForm(false);
+      toast.success("Task updated successfully");
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to update task');
+      toast.error(err instanceof Error ? err.message : 'Failed to update task');
     }
   };
 
@@ -373,7 +376,7 @@ export function Dashboard() {
           onConfirm={confirmDeleteTask}
         />
       )}
-      
+
     </div>
   );
 }

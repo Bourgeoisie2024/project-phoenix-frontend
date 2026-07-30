@@ -24,6 +24,9 @@ export function Dashboard() {
   const [priorityFilter, setPriorityFilter] = useState<
   'all' | Priority
   >('all');
+  const [sortOption, setSortOption] = useState<
+  'newest' | 'oldest' | 'priority_high' | 'priority_low'
+  >('newest');
   const [taskToDelete, setTaskToDelete] = useState<Task | null>(null);
   const { user, logout, token } = useAuth();
   const navigate = useNavigate();
@@ -153,15 +156,58 @@ export function Dashboard() {
     );
   });
 
-  const todoTasks = filteredTasks.filter(
+  const sortedTasks = [...filteredTasks].sort((a, b) => {
+    switch (sortOption) {
+      case 'oldest':
+        return (
+          new Date(a.created_at).getTime() -
+          new Date(b.created_at).getTime()
+        );
+
+      case 'priority_high': {
+        const priorityOrder = {
+          high: 3,
+          medium: 2,
+          low: 1,
+        };
+
+        return (
+          priorityOrder[b.priority] -
+          priorityOrder[a.priority]
+        );
+      }
+
+      case 'priority_low': {
+        const priorityOrder = {
+          high: 3,
+          medium: 2,
+          low: 1,
+        };
+
+        return (
+          priorityOrder[a.priority] -
+          priorityOrder[b.priority]
+        );
+      }
+
+      case 'newest':
+      default:
+        return (
+          new Date(b.created_at).getTime() -
+          new Date(a.created_at).getTime()
+        );
+    }
+  });
+
+  const todoTasks = sortedTasks.filter(
     (task) => task.status === 'todo'
   );
 
-  const inProgressTasks = filteredTasks.filter(
+  const inProgressTasks = sortedTasks.filter(
     (task) => task.status === 'in_progress'
   );
 
-  const doneTasks = filteredTasks.filter(
+  const doneTasks = sortedTasks.filter(
     (task) => task.status === 'done'
   );
 
@@ -350,7 +396,7 @@ export function Dashboard() {
           </div>
         )}
 
-        <div className="mb-6 flex flex-col gap-4 md:flex-row">
+        <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:flex-wrap">
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
 
@@ -359,7 +405,7 @@ export function Dashboard() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search tasks by title or description..."
-              className="w-full rounded-xl border border-gray-300 bg-white py-3 pl-12 pr-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-400 py-3 pl-12 pr-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
 
@@ -387,6 +433,36 @@ export function Dashboard() {
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
+          </select>
+
+          <select
+            value={sortOption}
+            onChange={(e) =>
+              setSortOption(
+                e.target.value as
+                | 'newest'
+                | 'oldest'
+                | 'priority_high'
+                | 'priority_low'
+              )
+            }
+            className="rounded-xl border border-gray-300 bg-white px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent md:w-56"
+          >
+            <option value="newest">
+              Newest First
+            </option>
+
+            <option value="oldest">
+              Oldest First
+            </option>
+
+            <option value="priority_high">
+              Priority: High → Low
+            </option>
+
+            <option value="priority_low">
+              Priority: Low → High
+            </option>
           </select>
         </div>
 

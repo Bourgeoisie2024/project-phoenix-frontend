@@ -5,6 +5,7 @@ import { Task, CreateTaskInput, Status } from '../types/task';
 import { taskApi } from '../services/api';
 import { KanbanColumn } from '../components/KanbanColumn';
 import { TaskForm } from '../components/TaskForm';
+import { DeleteConfirmModal } from '../components/DeleteConfirmModal';
 import { LayoutDashboard, Plus, RefreshCw, LogOut, CheckCircle2, Clock3, ListTodo } from 'lucide-react';
 
 
@@ -15,6 +16,7 @@ export function Dashboard() {
   const [showForm, setShowForm] = useState(false);
   const [initialStatus, setInitialStatus] = useState<Status>('todo');
   const [editingTask, setEditingTask] = useState<Task | null>(null);
+  const [taskToDelete, setTaskToDelete] = useState<Task | null>(null);
   const { user, logout, token } = useAuth();
   const navigate = useNavigate();
 
@@ -65,12 +67,26 @@ export function Dashboard() {
     }
   };
 
-  const handleDeleteTask = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this task?')) return;
+  const handleDeleteTask = (id: number) => {
+    const task = tasks.find((task) => task.id === id);
+
+    if (task) {
+      setTaskToDelete(task);
+    }
+  };
+
+  const confirmDeleteTask = async () => {
+    if (!taskToDelete) return;
 
     try {
-      await taskApi.deleteTask(id);
-      setTasks((prev) => prev.filter((task) => task.id !== id));
+      await taskApi.deleteTask(taskToDelete.id);
+
+      setTasks((prev) =>
+        prev.filter((task) => task.id !== taskToDelete.id)
+      );
+
+      setTaskToDelete(null);
+
     } catch (err) {
       alert(err instanceof Error ? err.message : 'Failed to delete task');
     }
@@ -350,6 +366,14 @@ export function Dashboard() {
           submitLabel={editingTask ? "Save Changes" : "Create Task"}
         />
       )}
+      {taskToDelete && (
+        <DeleteConfirmModal
+          taskTitle={taskToDelete.title}
+          onCancel={() => setTaskToDelete(null)}
+          onConfirm={confirmDeleteTask}
+        />
+      )}
+      
     </div>
   );
 }

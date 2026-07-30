@@ -18,6 +18,9 @@ export function Dashboard() {
   const [initialStatus, setInitialStatus] = useState<Status>('todo');
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState<
+    'all' | Status
+  >('all');
   const [taskToDelete, setTaskToDelete] = useState<Task | null>(null);
   const { user, logout, token } = useAuth();
   const navigate = useNavigate();
@@ -128,10 +131,15 @@ export function Dashboard() {
   const filteredTasks = tasks.filter((task) => {
     const query = searchTerm.toLowerCase();
 
-    return (
+    const matchesSearch =
       task.title.toLowerCase().includes(query) ||
-      task.description.toLowerCase().includes(query)
-    );
+      task.description.toLowerCase().includes(query);
+
+    const matchesStatus =
+      statusFilter === 'all' ||
+      task.status === statusFilter;
+
+    return matchesSearch && matchesStatus;
   });
 
   const todoTasks = filteredTasks.filter(
@@ -331,8 +339,8 @@ export function Dashboard() {
           </div>
         )}
 
-        <div className="mb-6">
-          <div className="relative">
+        <div className="mb-6 flex flex-col gap-4 md:flex-row">
+          <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
 
             <input
@@ -343,6 +351,19 @@ export function Dashboard() {
               className="w-full rounded-xl border border-gray-300 bg-white py-3 pl-12 pr-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
+
+          <select
+            value={statusFilter}
+            onChange={(e) =>
+              setStatusFilter(e.target.value as 'all' | Status)
+            }
+            className="rounded-xl border border-gray-300 bg-white px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent md:w-56"
+          >
+            <option value="all">All Statuses</option>
+            <option value="todo">To Do</option>
+            <option value="in_progress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">

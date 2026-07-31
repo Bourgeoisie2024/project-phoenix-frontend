@@ -7,7 +7,7 @@ import { taskApi } from '../services/api';
 import { KanbanColumn } from '../components/KanbanColumn';
 import { TaskForm } from '../components/TaskForm';
 import { DeleteConfirmModal } from '../components/DeleteConfirmModal';
-import { Plus, RefreshCw, LogOut, CheckCircle2, Clock3, ListTodo, Search } from 'lucide-react';
+import { Plus, RefreshCw, LogOut, CheckCircle2, Clock3, ListTodo, Search, Moon, Sun } from 'lucide-react';
 
 
 export function Dashboard() {
@@ -21,6 +21,9 @@ export function Dashboard() {
   const [statusFilter, setStatusFilter] = useState<
     'all' | Status
   >('all');
+  const [darkMode, setDarkMode] = useState(() => {
+  return localStorage.getItem("theme") === "dark";
+  });
   const [priorityFilter, setPriorityFilter] = useState<
   'all' | Priority
   >('all');
@@ -47,6 +50,16 @@ export function Dashboard() {
   useEffect(() => {
     loadTasks();
   }, [token]);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
 
   const handleCreateTask = async (taskInput: CreateTaskInput) => {
     try {
@@ -213,11 +226,11 @@ export function Dashboard() {
 
   if (loading) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
         {/* Summary skeleton */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
           {[1, 2, 3, 4].map((item) => (
             <div
               key={item}
@@ -273,10 +286,10 @@ export function Dashboard() {
   );}
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <header className="bg-white border-b border-gray-200 shadow-lg">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950 transition-colors duration-300">
+      <header className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700 shadow-lg transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-6 xl:flex-row xl:items-center xl:justify-between">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12">
                 <img
@@ -291,11 +304,11 @@ export function Dashboard() {
                   Project Phoenix
                 </h1>
 
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors">
                   Cloud-Native Task Management Dashboard
                 </p>
 
-                <p className="text-sm text-gray-700 mt-1">
+                <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 transition-colors">
                   Welcome back,{" "}
                   <span className="font-semibold">
                     {user?.username}
@@ -303,24 +316,35 @@ export function Dashboard() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col min-[390px]:flex-row min-[390px]:flex-wrap min-[390px]:justify-end items-stretch min-[390px]:items-center gap-3 w-full lg:w-auto">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-end items-stretch sm:items-center gap-3 w-full xl:w-auto">
               <button
                 onClick={loadTasks}
-                className="w-full min-[390px]:w-auto p-3 rounded-xl border border-gray-200 hover:bg-gray-100 transition-all duration-300"
+                className="w-full sm:w-auto p-3 rounded-xl border border-gray-200 hover:bg-gray-100 transition-all duration-300"
                 aria-label="Refresh tasks"
               >
                 <RefreshCw className="w-5 h-5" />
               </button>
               <button
+                onClick={() => setDarkMode(!darkMode)}
+                className="w-full sm:w-auto p-3 rounded-xl border border-gray-200 hover:bg-gray-100 transition-all duration-300"
+                aria-label="Toggle theme"
+              >
+                {darkMode ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )}
+              </button>
+              <button
                 onClick={() => handleAddTask('todo')}
-                className="flex items-center justify-center gap-2 whitespace-nowrap w-full min-[390px]:w-auto px-5 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300"
+                className="flex items-center justify-center gap-2 whitespace-nowrap w-full sm:w-auto px-5 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300"
               >
                 <Plus className="w-5 h-5" />
                 New Task
               </button>
               <button
                 onClick={handleLogout}
-                className="flex items-center justify-center gap-2 whitespace-nowrap w-full min-[390px]:w-auto px-5 py-3 border border-gray-300 rounded-xl font-medium hover:bg-gray-100 transition-all duration-300"
+                className="flex items-center justify-center gap-2 whitespace-nowrap w-full sm:w-auto px-5 py-3 border border-gray-300 rounded-xl font-medium hover:bg-gray-100 transition-all duration-300"
               >
                 <LogOut className="w-5 h-5" />
                 Logout
@@ -333,56 +357,56 @@ export function Dashboard() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
 
-          <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm transition-colors duration-300">
             <div className="flex items-center gap-3">
               <ListTodo className="w-8 h-8 text-blue-500" />
               <div>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors">
                   Total Tasks
                 </p>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-900 dark:text-white transition-colors">
                   {tasks.length}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm transition-colors duration-300">
             <div className="flex items-center gap-3">
               <ListTodo className="w-8 h-8 text-gray-400" />
               <div>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors">
                   To Do
                 </p>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-900 dark:text-white transition-colors">
                   {todoTasks.length}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm transition-colors duration-300">
             <div className="flex items-center gap-3">
               <Clock3 className="w-8 h-8 text-blue-500" />
               <div>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors">
                   In Progress
                 </p>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-900 dark:text-white transition-colors">
                   {inProgressTasks.length}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-sm transition-colors duration-300">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-8 h-8 text-green-500" />
               <div>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors">
                   Completed
                 </p>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-900 dark:text-white transition-colors">
                   {doneTasks.length}
                 </p>
               </div>
@@ -396,7 +420,7 @@ export function Dashboard() {
           </div>
         )}
 
-        <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:flex-wrap">
+        <div className="mb-6 flex flex-col gap-4 xl:flex-row xl:items-center xl:flex-wrap">
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
 
@@ -466,11 +490,12 @@ export function Dashboard() {
           </select>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 items-start">
           <KanbanColumn
             title="To Do"
             status="todo"
             tasks={todoTasks}
+            darkMode={darkMode}
             onDelete={handleDeleteTask}
             onEdit={(task) => {
               setEditingTask(task);
@@ -483,6 +508,7 @@ export function Dashboard() {
             title="In Progress"
             status="in_progress"
             tasks={inProgressTasks}
+            darkMode={darkMode}
             onDelete={handleDeleteTask}
             onEdit={(task) => {
               setEditingTask(task);
@@ -495,6 +521,7 @@ export function Dashboard() {
             title="Done"
             status="done"
             tasks={doneTasks}
+            darkMode={darkMode}
             onDelete={handleDeleteTask}
             onEdit={(task) => {
               setEditingTask(task);
@@ -509,6 +536,7 @@ export function Dashboard() {
       {showForm && (
         <TaskForm
           initialTask={editingTask ?? undefined}
+          darkMode={darkMode}
           onSubmit={(taskData) => {
             if (editingTask) {
               handleUpdateTask(editingTask.id, taskData);
@@ -529,6 +557,7 @@ export function Dashboard() {
           taskTitle={taskToDelete.title}
           onCancel={() => setTaskToDelete(null)}
           onConfirm={confirmDeleteTask}
+          darkMode={darkMode}
         />
       )}
 

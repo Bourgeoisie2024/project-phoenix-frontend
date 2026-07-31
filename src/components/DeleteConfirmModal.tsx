@@ -4,16 +4,24 @@ interface DeleteConfirmModalProps {
   taskTitle: string;
   onConfirm: () => void;
   onCancel: () => void;
+  darkMode: boolean;
 }
 
 export function DeleteConfirmModal({
   taskTitle,
   onConfirm,
   onCancel,
+  darkMode,
 }: DeleteConfirmModalProps) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
+      <div
+        className={`rounded-2xl shadow-xl max-w-md w-full p-6 transition-colors ${
+          darkMode
+            ? 'bg-slate-800'
+            : 'bg-white'
+        }`}
+      >
 
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
@@ -22,11 +30,15 @@ export function DeleteConfirmModal({
             </div>
 
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">
+              <h2 className={`text-xl font-semibold ${
+                    darkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                 Delete Task
               </h2>
 
-              <p className="text-sm text-gray-500">
+              <p className={`text-sm ${
+                darkMode ? 'text-gray-400' : 'text-gray-500'
+                }`}>
                 This action cannot be undone.
               </p>
             </div>
@@ -34,7 +46,11 @@ export function DeleteConfirmModal({
 
           <button
             onClick={onCancel}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className={`transition-colors ${
+              darkMode
+                ? 'text-gray-400 hover:text-white'
+                : 'text-gray-400 hover:text-gray-600'
+            }`}
             aria-label="Close"
           >
             <X className="w-5 h-5" />
@@ -43,11 +59,15 @@ export function DeleteConfirmModal({
 
 
         <div className="mb-6">
-          <p className="text-gray-700">
+          <p className={`${
+            darkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
             Are you sure you want to delete:
           </p>
 
-          <p className="mt-2 font-semibold text-gray-900 break-words">
+          <p className={`mt-2 font-semibold break-words ${
+            darkMode ? 'text-white' : 'text-gray-900'
+            }`}>
             "{taskTitle}"
           </p>
         </div>
@@ -56,7 +76,11 @@ export function DeleteConfirmModal({
         <div className="flex gap-3">
           <button
             onClick={onCancel}
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors"
+            className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
+              darkMode
+                ? 'border border-slate-600 text-gray-200 hover:bg-slate-700'
+                : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
+            }`}
           >
             Cancel
           </button>

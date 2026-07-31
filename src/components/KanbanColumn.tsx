@@ -11,6 +11,7 @@ interface KanbanColumnProps {
   onEdit: (task: Task) => void;
   onAddTask: (status: Status) => void;
   onDrop: (taskId: number, newStatus: Status) => void;
+  darkMode: boolean;
 }
 
 const statusColors: Record<Status, string> = {
@@ -27,6 +28,7 @@ export function KanbanColumn({
   onEdit,
   onAddTask,
   onDrop,
+  darkMode,
 }: KanbanColumnProps) {
   const [isDragOver, setIsDragOver] = useState(false);
 
@@ -53,17 +55,41 @@ export function KanbanColumn({
   };
 
   return (
-    <div className={`flex-1 min-w-0 rounded-2xl border ${statusColors[status]} p-5 shadow-sm hover:shadow-md transition-shadow duration-300`}>
+    <div
+      className={`flex-1 min-w-0 rounded-2xl border p-5 shadow-sm hover:shadow-md transition-all duration-300
+        ${
+          darkMode
+            ? 'bg-slate-800 border-slate-700'
+            : statusColors[status]
+        }`}
+    >
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2">
-          <h2 className="font-bold text-gray-900 uppercase tracking-wide text-sm">{title}</h2>
-          <span className="inline-flex items-center justify-center min-w-7 h-7 px-2 text-xs font-semibold bg-white rounded-full border border-gray-300 shadow-sm">
+          <h2
+            className={`font-bold uppercase tracking-wide text-sm ${
+              darkMode ? 'text-white' : 'text-gray-900'
+            }`}
+          >
+            {title}
+          </h2>
+          <span className={`inline-flex items-center justify-center min-w-7 h-7 px-2 text-xs font-semibold rounded-full shadow-sm
+                  ${
+                    darkMode
+                      ? 'bg-slate-700 border border-slate-600 text-white'
+                      : 'bg-white border border-gray-300 text-gray-900'
+                  }`}
+          >
             {tasks.length}
           </span>
         </div>
         <button
           onClick={() => onAddTask(status)}
-          className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-white transition-all duration-300"
+          className={`p-2 rounded-lg transition-all duration-300
+            ${
+              darkMode
+                ? 'text-gray-300 hover:text-white hover:bg-slate-700'
+                : 'text-gray-500 hover:text-gray-900 hover:bg-white'
+            }`}
           aria-label="Add task"
         >
           <Plus className="w-5 h-5" />
@@ -95,7 +121,7 @@ export function KanbanColumn({
           <div className="flex flex-col items-center justify-center py-8 text-center">
             <ClipboardList className="w-8 h-8 text-gray-300 mb-3" />
 
-            <p className="text-sm font-medium text-gray-500">
+            <p className="text-center py-8 text-gray-400 dark:text-gray-500 text-sm">
               No tasks yet
             </p>
 

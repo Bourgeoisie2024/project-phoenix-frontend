@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { AlertCircle, LogIn, Lock, User, Eye, EyeOff, Sparkles, Shield, Brain, Server, Cpu } from 'lucide-react';
+import { AlertCircle, LogIn, Lock, User, Eye, EyeOff, Shield, Brain, Cpu } from 'lucide-react';
 
 export function Login() {
   const [username, setUsername] = useState('');
@@ -115,7 +115,7 @@ export function Login() {
                 <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent my-3"></div>
                 <p className="text-sm text-gray-400">Portfolio Project</p>
                 <p className="text-lg font-bold text-white">Project Phoenix</p>
-                <p className="text-gray-300">TS Academy DevOps Capstone • 2026</p>
+                <p className="text-gray-300">Cloud-Native Portfolio Application • 2026</p>
               </div>
             </div>
           </div>

@@ -97,7 +97,7 @@ export function SignUp() {
                 </div>
                 <div>
                   <h1 className="text-xl font-bold">Create Account</h1>
-                  <p className="text-sm text-gray-400">Join DevOps Hub</p>
+                  <p className="text-sm text-gray-400">Join Project Phoenix</p>
                 </div>
               </div>
               <Link
@@ -251,7 +251,7 @@ export function SignUp() {
 
           <div className="px-8 py-6 bg-gradient-to-r from-gray-900 to-gray-800 border-t border-gray-700">
             <p className="text-center text-xs text-gray-500">
-              © 2026 DevOps Hub • Part of TS Academy DevOps Engineering Program
+              © 2026 Project Phoenix • Built with React, TypeScript & Kubernetes
             </p>
           </div>
         </div>

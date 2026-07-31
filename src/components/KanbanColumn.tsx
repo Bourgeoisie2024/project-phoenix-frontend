@@ -113,7 +113,7 @@ export function KanbanColumn({
             onDragStart={(e) => handleDragStart(e, task.id)}
             className="cursor-move"
           >
-            <TaskCard task={task} onDelete={onDelete} onEdit={onEdit} />
+            <TaskCard task={task} onDelete={onDelete} onEdit={onEdit} darkMode={darkMode} />
           </div>
         ))}
 

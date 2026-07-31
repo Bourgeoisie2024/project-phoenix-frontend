@@ -735,7 +735,7 @@ export function Landing() {
             <div className="mb-4">
               <div className="flex items-center justify-center md:justify-end gap-2 mb-2">
                 <Award className="w-5 h-5 text-yellow-400" />
-                <span className="font-semibold">Cloud-Native DevOps Portfolio</span>
+                <span className="font-semibold whitespace-nowrap">Cloud-Native DevOps Portfolio</span>
               </div>
 
               <p className="text-gray-400">Designed & Engineered by</p>

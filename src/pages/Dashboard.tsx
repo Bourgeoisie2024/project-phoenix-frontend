@@ -497,10 +497,7 @@ export function Dashboard() {
             tasks={todoTasks}
             darkMode={darkMode}
             onDelete={handleDeleteTask}
-            onEdit={(task) => {
-              setEditingTask(task);
-              setShowForm(true);
-            }}
+            onEdit={handleEditTask}
             onAddTask={handleAddTask}
             onDrop={handleUpdateTaskStatus}
           />
@@ -510,10 +507,7 @@ export function Dashboard() {
             tasks={inProgressTasks}
             darkMode={darkMode}
             onDelete={handleDeleteTask}
-            onEdit={(task) => {
-              setEditingTask(task);
-              setShowForm(true);
-            }}
+            onEdit={handleEditTask}
             onAddTask={handleAddTask}
             onDrop={handleUpdateTaskStatus}
           />
@@ -523,10 +517,7 @@ export function Dashboard() {
             tasks={doneTasks}
             darkMode={darkMode}
             onDelete={handleDeleteTask}
-            onEdit={(task) => {
-              setEditingTask(task);
-              setShowForm(true);
-            }}
+            onEdit={handleEditTask}
             onAddTask={handleAddTask}
             onDrop={handleUpdateTaskStatus}
           />

@@ -133,7 +133,7 @@ export function Landing() {
             </span>            
           </h1>
 
-          <p className="text-1.5xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
               A task management platform engineered with production-grade DevOps practices.
             <span className="block mt-4">
               Built with React, Flask, PostgreSQL, Kubernetes, Terraform, Ansible,
@@ -149,7 +149,7 @@ export function Landing() {
               View Live Application
             </Link>
             <a 
-              href="https://github.com/Bourgeoisie2024/capstone-phoenix/tree/capstone-build"
+              href="https://github.com/Bourgeoisie2024/capstone-phoenix"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-gray-800 border border-gray-700 text-white rounded-xl hover:bg-gray-700 transition-all duration-300 font-semibold text-lg flex items-center justify-center">
@@ -370,9 +370,9 @@ export function Landing() {
         </div>
 
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 place-items-center">
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
             <h3 className="text-xl font-bold mb-4">
               Frontend
             </h3>
@@ -388,7 +388,7 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
             <h3 className="text-xl font-bold mb-4">
               Backend & Database
             </h3>
@@ -404,7 +404,7 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
             <h3 className="text-xl font-bold mb-4">
               Infrastructure
             </h3>
@@ -420,7 +420,7 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
             <h3 className="text-xl font-bold mb-4">
               Platform & Delivery
             </h3>
@@ -436,7 +436,7 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
             <h3 className="text-xl font-bold mb-4">
               Security
             </h3>
@@ -452,7 +452,7 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
             <h3 className="text-xl font-bold mb-4">
               Observability
             </h3>

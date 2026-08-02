@@ -370,13 +370,13 @@ export function Landing() {
         </div>
 
 
-        <div className="grid md:grid-cols-3 gap-8 place-items-center">
+        <div className="grid md:grid-cols-3 gap-8 items-stretch">
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
+          <div className="h-full bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center flex flex-col">
             <h3 className="text-xl font-bold mb-4">
               Frontend
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mt-auto">
               React
               <br />
               TypeScript
@@ -388,11 +388,11 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
+          <div className="h-full bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center flex flex-col">
             <h3 className="text-xl font-bold mb-4">
               Backend & Database
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mt-auto">
               Flask API
               <br />
               Python
@@ -404,11 +404,11 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
+          <div className="h-full bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center flex flex-col">
             <h3 className="text-xl font-bold mb-4">
               Infrastructure
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mt-auto">
               AWS EC2
               <br />
               Terraform
@@ -420,11 +420,11 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
+          <div className="h-full bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center flex flex-col">
             <h3 className="text-xl font-bold mb-4">
               Platform & Delivery
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mt-auto">
               Kubernetes (K3s)
               <br />
               Argo CD
@@ -436,11 +436,11 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
+          <div className="h-full bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center flex flex-col">
             <h3 className="text-xl font-bold mb-4">
               Security
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mt-auto">
               TLS Certificates
               <br />
               Network Policies
@@ -452,11 +452,11 @@ export function Landing() {
           </div>
 
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
+          <div className="h-full bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 text-center flex flex-col">
             <h3 className="text-xl font-bold mb-4">
               Observability
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mt-auto">
               Prometheus
               <br />
               Grafana
@@ -487,7 +487,7 @@ export function Landing() {
         <div className="grid md:grid-cols-4 gap-6">
 
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 text-center">
-            <h3 className="font-bold mb-3">
+            <h3 className="text-xl font-bold mb-3">
               Source Control
             </h3>
 
@@ -500,7 +500,7 @@ export function Landing() {
 
 
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 text-center">
-            <h3 className="font-bold mb-3">
+            <h3 className="text-xl font-bold mb-3">
               Infrastructure
             </h3>
 
@@ -515,7 +515,7 @@ export function Landing() {
 
 
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 text-center">
-            <h3 className="font-bold mb-3">
+            <h3 className="text-xl font-bold mb-3">
               Deployment
             </h3>
 
@@ -530,7 +530,7 @@ export function Landing() {
 
 
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 text-center">
-            <h3 className="font-bold mb-3">
+            <h3 className="text-xl font-bold mb-3">
               Operations
             </h3>
 
